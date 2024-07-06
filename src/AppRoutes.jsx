@@ -4,7 +4,6 @@ import Cart from "./pages/Cart";
 import Home from "./pages/Home";
 import Checkout from "./pages/Checkout";
 
-
 const AppRoutes = () => {
   return (
     <Router>
