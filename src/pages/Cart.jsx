@@ -2,7 +2,7 @@ import React from 'react'
 
 const Cart = () => {
   return (
-    <div>Cart</div>
+    <h1 className='text-4xl text-blue-900 font-bold ml-4'>Cart</h1>
   )
 }
 
