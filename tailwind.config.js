@@ -11,6 +11,7 @@ export default {
       },
       colors: {
         "customGray-800": '#1C1D1E',
+        "customGray-700": '#2A2B2C',
         "customGray-50": '#FDFDFD',
         "customGray-400": '#EDECEC',
         customTeal: '#0ABAB5',
