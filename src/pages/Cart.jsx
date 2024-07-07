@@ -1,8 +1,12 @@
-import React from 'react'
+import { RiArrowLeftLine } from "react-icons/ri";
 
 const Cart = () => {
   return (
-    <h1 className='text-4xl text-blue-900 font-bold ml-4'>Cart</h1>
+    <section className="">
+      <div>
+        
+      </div> 
+    </section>
   )
 }
 
