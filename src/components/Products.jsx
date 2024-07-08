@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 
 const Products = () => {
   return (
-    <section className="text-base">
+    <section className="text-base max-w-2xl mx-auto">
       <h2 className="font-semibold">Product list <span className="font-normal">({products.length})</span> </h2>
-      <div className="mt-3 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2">
+      <div className="mt-3 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-2 min-w-80 mx-auto items-center justify-center">
         {products.map((product) => (
-          <div key={product.id} className="border-2 border-customGray-300 rounded-[10px] min-w-36">
+          <div key={product.id} className="border-2 border-customGray-300 rounded-[10px] min-w-40 w-full">
             <div className="aspect-square min-h-32">
               <img src={product.image} alt={product.name} className="object-cover w-full h-full rounded-ss-[10px] rounded-se-[10px]"/>
             </div>
