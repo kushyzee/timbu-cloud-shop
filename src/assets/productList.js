@@ -87,7 +87,7 @@ const products = [
   },
   {
     id: 10,
-    name: "“Best boss ever” mug",
+    name: '"Best boss” mug',
     price: "6,000.00",
     rating: "4.1",
     image: bestBossEverMug,
