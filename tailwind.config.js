@@ -15,7 +15,8 @@ export default {
         "customGray-50": '#FDFDFD',
         "customGray-400": '#EDECEC',
         customTeal: '#0ABAB5',
-        customRed: '#9C0A0A'
+        customRed: '#9C0A0A',
+        customYellow: '#FFCE31'
       },
     },
   },
