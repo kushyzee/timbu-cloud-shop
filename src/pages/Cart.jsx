@@ -15,7 +15,8 @@ const Cart = () => {
           <PageLabel name="Cart" page="/" />
           <p className="text-sm font-medium">1 item</p>
         </div>
-          <div className="font-sm border-customGray-300 mb-2 flex items-center justify-start gap-2 rounded-[10px] border-2 p-2.5">
+        
+        <div className="font-sm border-customGray-300 mb-2 flex items-center justify-start gap-2 rounded-[10px] border-2 p-2.5">
             <div className="aspect-square h-28">
               <img
                 src={product.image}

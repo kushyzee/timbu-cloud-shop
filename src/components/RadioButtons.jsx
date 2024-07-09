@@ -1,13 +1,15 @@
 import { useState, Fragment } from "react";
 import { RadioGroup } from "@headlessui/react";
 import { MdOutlineRadioButtonChecked as CheckIcon } from "react-icons/md";
-import { RiVisaLine, RiMastercardFill } from "react-icons/ri";
+import { RiVisaLine } from "react-icons/ri";
 import { FaCcPaypal } from "react-icons/fa";
-
+import masterCard  from "../assets/images/master_card.svg"
 const cards = [
-  <RiVisaLine />,
-  <RiMastercardFill />,
-  <FaCcPaypal />,
+    <RiVisaLine />,
+  <div className="bg-customGray-400 px-2.5 rounded-md py-0.5">
+    <img src={masterCard} alt="Master Card" className="w-6" />
+  </div>,
+  <FaCcPaypal />
 ];
 
 function RadioButtons() {
@@ -31,7 +33,7 @@ function RadioButtons() {
                   className={`inline-block text-2xl ${checked ? "text-customTeal" : "text-customGray-600"}`}
                 />
                 <span
-                  className={`text-3xl inline-block px-2 ${checked && "border-2 border-customTeal rounded-md"}`}
+                  className={`text-3xl rounded-md inline-block ${checked && "border-2 border-customTeal rounded-md"}`}
                 >
                   {card}
                 </span>

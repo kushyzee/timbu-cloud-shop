@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^2.1.2",
+    "@tailwindcss/forms": "^0.5.7",
     "imagekitio-react": "^4.1.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
