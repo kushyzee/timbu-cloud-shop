@@ -1,6 +1,8 @@
 import PageLabel from "../components/PageLabel"
 import RadioButtons from "../components/RadioButtons"
 import PaymentDetails from "../components/PaymentDetails"
+import OrderSummary from "../components/OrderSummary";
+import CartItem from "../components/CartItem";
 
 const Checkout = () => {
   return (
@@ -13,6 +15,8 @@ const Checkout = () => {
 
         <div className="mt-5">
           <PaymentDetails />
+          <OrderSummary isCart={false} />
+          <CartItem isCart={false} className="mt-8" />
         </div>
     </section>
   )

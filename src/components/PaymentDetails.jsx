@@ -3,7 +3,6 @@ import { MdOutlineCreditCard } from "react-icons/md";
 import { BiCalendar } from "react-icons/bi";
 import { RiInformation2Line } from "react-icons/ri";
 import { Link } from "react-router-dom";
-import OrderSummary from "./OrderSummary";
 
 const PaymentDetails = () => {
   return (
@@ -192,8 +191,6 @@ const PaymentDetails = () => {
 
         <Link className="mt-5 block text-center text-sm font-semibold bg-customGray-800 text-customGray-50 rounded-md py-2.5 px-4" to="/payment-success">Pay now</Link>   
       </form>
-
-      <OrderSummary isCart={false} />
     </div>
   );
 };
