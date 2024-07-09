@@ -21,8 +21,8 @@ function RadioButtons() {
         Choose your preferred payment method
       </RadioGroup.Label>
       <div className="flex gap-5">
-        {cards.map((card) => (
-          <RadioGroup.Option key={card} value={card} as={Fragment}>
+        {cards.map((card, index) => (
+          <RadioGroup.Option key={index} value={card} as={Fragment}>
             {({ active, checked }) => (
               <p
                 className={`${
