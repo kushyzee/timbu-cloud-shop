@@ -3,6 +3,7 @@ import Layout from "./components/Layout/Layout";
 import Cart from "./pages/Cart";
 import Home from "./pages/Home";
 import Checkout from "./pages/Checkout";
+import PaymentSuccess from "./pages/PaymentSuccess";
 
 const AppRoutes = () => {
   return (
@@ -12,6 +13,7 @@ const AppRoutes = () => {
           <Route index element={<Home />} />
           <Route path="cart" element={<Cart />} />
           <Route path="checkout" element={<Checkout />} />
+          <Route path="payment/success" element={<PaymentSuccess />} />
         </Route>
       </Routes>
     </Router>

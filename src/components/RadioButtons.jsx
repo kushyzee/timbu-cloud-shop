@@ -6,9 +6,9 @@ import { FaCcPaypal } from "react-icons/fa";
 import masterCard  from "../assets/images/master_card.svg"
 const cards = [
     <RiVisaLine />,
-  <div className="bg-customGray-400 px-2.5 rounded-md py-0.5">
+  <span className="bg-customGray-400 px-2.5 rounded-md py-0.5 block">
     <img src={masterCard} alt="Master Card" className="w-6" />
-  </div>,
+  </span>,
   <FaCcPaypal />
 ];
 
