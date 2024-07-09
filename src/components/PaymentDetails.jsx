@@ -7,8 +7,8 @@ import { Link } from "react-router-dom";
 const PaymentDetails = () => {
   return (
     <div>
-      <h2 className="mb-3 text-base font-semibold">Payment details</h2>
-      <form className="border-b-2 border-customGray-400 pb-12">
+      <h2 className="mb-3 text-base lg:text-xl font-semibold">Payment details</h2>
+      <form className="border-b-2 border-customGray-400 pb-12 md:border-none">
         <div className="mb-8 grid gap-3 border-b-2 border-customGray-400 pb-8">
           <div>
             <label
@@ -95,7 +95,7 @@ const PaymentDetails = () => {
         </div>
 
         <div>
-          <h2 className="mb-3 text-base font-semibold">Shipping address</h2>
+          <h2 className="mb-3 text-base font-semibold lg:text-xl">Shipping address</h2>
           <div className="grid gap-3">
             <div>
               <label htmlFor="name" className="mb-1 block text-sm font-medium">
@@ -194,7 +194,7 @@ const PaymentDetails = () => {
 
         <Link
           className="mt-5 block rounded-md bg-customGray-800 px-4 py-2.5 text-center text-sm font-semibold text-customGray-50"
-          to="/payment/success"
+          to="/success"
         >
           Pay now
         </Link>

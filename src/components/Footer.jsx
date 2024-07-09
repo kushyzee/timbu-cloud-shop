@@ -16,7 +16,7 @@ const Footer = () => {
           <p className="font-bold">01-234567, 01-99952</p>
         </div>
         <div className="mt-11 flex flex-col items-center justify-center md:mt-0 md:max-w-64">
-          <div className="aspect-square w-28">
+          <div className="aspect-square w-28 md:w-32">
             <img
               src={footerImg}
               alt="footer image"

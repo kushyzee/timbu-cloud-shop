@@ -26,7 +26,7 @@ const OrderSummary = ({ isCart=true }) => {
   return (
     <div className="border-customGray-300 mb-2 mt-16 gap-2 rounded-[10px] border-2 p-2.5 text-sm text-customGray-800 md:mb-0 md:mt-0 lg:text-base flex-1">
       <div className="mb-5 w-full rounded-md bg-customTeal py-2.5 text-center text-base font-semibold">
-        <h3 className="lg:text-xl">Order Summary</h3>
+        <h3 className="lg:text-2xl">Order Summary</h3>
       </div>
 
       {isCart && promoCode()}
