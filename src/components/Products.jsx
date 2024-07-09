@@ -4,19 +4,38 @@ import { Link } from "react-router-dom";
 
 const Products = () => {
   return (
-    <section className="text-base max-w-2xl mx-auto">
-      <h2 className="font-semibold">Product list <span className="font-normal">({products.length})</span> </h2>
-      <div className="mt-3 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-2 min-w-80 mx-auto items-center justify-center">
+    <section className="mx-auto text-base lg:text-xl">
+      <h2 className="font-semibold lg:text-2xl">
+        Product list <span className="font-normal">({products.length})</span>{" "}
+      </h2>
+      <div className="mx-auto mt-3 grid min-w-80 grid-cols-2 items-center justify-center gap-2 sm:grid-cols-4 lg:mt-11 lg:grid-cols-4 lg:gap-4">
         {products.map((product) => (
-          <div key={product.id} className="border-2 border-customGray-300 rounded-[10px] min-w-40 w-full">
+          <div
+            key={product.id}
+            className="border-customGray-300 w-full min-w-40 rounded-[10px] border-2"
+          >
             <div className="aspect-square min-h-32">
-              <img src={product.image} alt={product.name} className="object-cover w-full h-full rounded-ss-[10px] rounded-se-[10px]"/>
+              <img
+                src={product.image}
+                alt={product.name}
+                className="h-full w-full rounded-se-[10px] rounded-ss-[10px] object-cover"
+              />
             </div>
-            <div className="px-2 py-2.5 text-sm">
-              <p className="leading-tight font-medium">{product.name}</p>
-              <p className="text-lg font-semibold mb-1 text-customRed">N{product.price}</p>
-              <p className="font-semibold"><MdStar className="text-customYellow inline-block" /> {product.rating}</p>
-              <Link to="cart" className="block bg-customGray-800 text-customGray-50 text-center py-2.5 rounded-md mt-2.5">Add to cart</Link>
+            <div className="px-2 py-2.5 text-sm lg:text-base lg:px-3">
+              <p className="font-medium leading-tight">{product.name}</p>
+              <p className="mb-1 text-lg font-semibold text-customRed lg:text-2xl">
+                N{product.price}
+              </p>
+              <p className="font-semibold">
+                <MdStar className="inline-block text-customYellow" />
+                {product.rating}
+              </p>
+              <Link
+                to="cart"
+                className="mt-2.5 block rounded-md bg-customGray-800 py-2.5 text-center text-customGray-50 lg:text-xl"
+              >
+                Add to cart
+              </Link>
             </div>
           </div>
         ))}
