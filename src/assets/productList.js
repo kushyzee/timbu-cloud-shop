@@ -31,7 +31,7 @@ const products = [
   },
   {
     id: 2,
-    name: "Red heart white mug",
+    name: "Red heart mug",
     price: "6,500.00",
     rating: "4.1",
     image: redHeartWhiteMug,
