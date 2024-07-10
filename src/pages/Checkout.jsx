@@ -18,7 +18,7 @@ const Checkout = () => {
           <PaymentDetails />
           
         </div>
-        <div className="flex flex-col gap-4 lg:justify-between lg:flex-row lg:items-start flex-1">
+        <div className="flex flex-col gap-4 lg:justify-end lg:flex-row lg:items-start flex-1">
           <OrderSummary isCart={false} />
           <CartItem isCart={false} className="mt-8" />
         </div>
