@@ -1,13 +1,14 @@
-import { RiArrowRightLine } from "react-icons/ri";
-import { IKImage } from "imagekitio-react";
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
-const urlEndpoint = "https://ik.imagekit.io/kushyzee/timbucloudshop";
-const Hero = () => {
-  return (
-    <section>
-        
-    </section>
-  );
-};
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
 
-export default Hero;
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
+export default ScrollToTop;

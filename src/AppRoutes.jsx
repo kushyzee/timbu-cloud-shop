@@ -4,10 +4,12 @@ import Cart from "./pages/Cart";
 import Home from "./pages/Home";
 import Checkout from "./pages/Checkout";
 import PaymentSuccess from "./pages/PaymentSuccess";
+import ScrollToTop from "./components/Hero";
 
 const AppRoutes = () => {
   return (
     <Router>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
