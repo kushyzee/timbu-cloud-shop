@@ -16,6 +16,7 @@ const Checkout = () => {
             <RadioButtons />
           </div>
           <PaymentDetails />
+          
         </div>
         <div className="flex flex-col gap-4 lg:justify-between lg:flex-row lg:items-start flex-1">
           <OrderSummary isCart={false} />

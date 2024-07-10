@@ -12,9 +12,9 @@ const promoCode = () => {
           type="text"
           id="promoCode"
           placeholder="Promo code"
-          className="block w-full rounded-md border px-2.5 py-2 focus:outline-none focus:border-customGray-800 focus:ring-customGray-800 focus:ring-1"
+          className="block w-full text-sm lg:text-base rounded-md border px-2.5 py-2 focus:outline-none focus:border-customGray-800 focus:ring-customGray-800 focus:ring-1"
         />
-        <button className="block rounded-md bg-customGray-800 px-5 py-2.5 text-center text-customGray-50">
+        <button className="block rounded-md bg-customGray-800 px-5 py-2 lg:py-2.5 text-center text-customGray-50">
           Apply
         </button>
       </div>

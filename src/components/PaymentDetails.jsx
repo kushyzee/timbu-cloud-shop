@@ -3,17 +3,20 @@ import { MdOutlineCreditCard } from "react-icons/md";
 import { BiCalendar } from "react-icons/bi";
 import { RiInformation2Line } from "react-icons/ri";
 import { Link } from "react-router-dom";
+import ShippingAddress from "./ShippingAddress";
 
 const PaymentDetails = () => {
   return (
     <div>
-      <h2 className="mb-3 text-base lg:text-xl font-semibold">Payment details</h2>
+      <h2 className="mb-3 text-base font-semibold md:text-xl">
+        Payment details
+      </h2>
       <form className="border-b-2 border-customGray-400 pb-12 md:border-none">
-        <div className="mb-8 grid gap-3 border-b-2 border-customGray-400 pb-8">
+        <div className="mb-8 grid gap-3 border-b-2 border-customGray-400 pb-8 md:gap-5">
           <div>
             <label
               htmlFor="cardName"
-              className="mb-1 block text-sm font-medium"
+              className="mb-1 block text-sm font-medium md:text-base"
             >
               Name on card
             </label>
@@ -36,7 +39,7 @@ const PaymentDetails = () => {
           <div>
             <label
               htmlFor="cardNumber"
-              className="mb-1 block text-sm font-medium"
+              className="mb-1 block text-sm font-medium md:text-base"
             >
               Card number
             </label>
@@ -57,7 +60,10 @@ const PaymentDetails = () => {
           </div>
 
           <div>
-            <label htmlFor="expiry" className="mb-1 block text-sm font-medium">
+            <label
+              htmlFor="expiry"
+              className="mb-1 block text-sm font-medium md:text-base"
+            >
               Expiry date
             </label>
             <div className="relative">
@@ -77,7 +83,10 @@ const PaymentDetails = () => {
           </div>
 
           <div>
-            <label htmlFor="cvv" className="mb-1 block text-sm font-medium">
+            <label
+              htmlFor="cvv"
+              className="mb-1 block text-sm font-medium md:text-base"
+            >
               CVV
             </label>
             <div className="flex items-end gap-3">
@@ -89,111 +98,15 @@ const PaymentDetails = () => {
                 placeholder="***"
                 className="w-1/4 rounded-md border-2 border-customGray-800 p-2.5 text-sm focus:border-customGray-600 focus:outline-none focus:ring-1 focus:ring-customGray-600"
               />
-              <RiInformation2Line className="inline-block text-2xl cursor-pointer" />
+              <RiInformation2Line className="inline-block cursor-pointer text-2xl" />
             </div>
           </div>
         </div>
 
-        <div>
-          <h2 className="mb-3 text-base font-semibold lg:text-xl">Shipping address</h2>
-          <div className="grid gap-3">
-            <div>
-              <label htmlFor="name" className="mb-1 block text-sm font-medium">
-                Name
-              </label>
-              <div>
-                <input
-                  required
-                  type="text"
-                  id="name"
-                  autoComplete="name"
-                  className="w-full rounded-md border-2 border-customGray-800 p-2.5 text-sm focus:border-customGray-600 focus:outline-none focus:ring-1 focus:ring-customGray-600"
-                />
-              </div>
-            </div>
-
-            <div>
-              <label
-                htmlFor="address"
-                className="mb-1 block text-sm font-medium"
-              >
-                Address
-              </label>
-              <div>
-                <input
-                  required
-                  type="text"
-                  id="address"
-                  autoComplete="street-address"
-                  className="w-full rounded-md border-2 border-customGray-800 p-2.5 text-sm focus:border-customGray-600 focus:outline-none focus:ring-1 focus:ring-customGray-600"
-                />
-              </div>
-            </div>
-
-            <div>
-              <label htmlFor="phone" className="mb-1 block text-sm font-medium">
-                Phone number
-              </label>
-              <div>
-                <input
-                  required
-                  type="tel"
-                  id="phone"
-                  autoComplete="tel"
-                  className="w-full rounded-md border-2 border-customGray-800 p-2.5 text-sm focus:border-customGray-600 focus:outline-none focus:ring-1 focus:ring-customGray-600"
-                />
-              </div>
-            </div>
-
-            <div>
-              <label htmlFor="city" className="mb-1 block text-sm font-medium">
-                City
-              </label>
-              <div>
-                <input
-                  required
-                  type="text"
-                  id="city"
-                  autoComplete="address-level2"
-                  className="w-1/2 rounded-md border-2 border-customGray-800 p-2.5 text-sm focus:border-customGray-600 focus:outline-none focus:ring-1 focus:ring-customGray-600"
-                />
-              </div>
-            </div>
-
-            <div>
-              <label htmlFor="state" className="mb-1 block text-sm font-medium">
-                State
-              </label>
-              <div>
-                <input
-                  required
-                  type="text"
-                  id="state"
-                  autoComplete="address-level1"
-                  className="w-1/2 rounded-md border-2 border-customGray-800 p-2.5 text-sm focus:border-customGray-600 focus:outline-none focus:ring-1 focus:ring-customGray-600"
-                />
-              </div>
-            </div>
-
-            <div>
-              <label htmlFor="zip" className="mb-1 block text-sm font-medium">
-                Zip
-              </label>
-              <div>
-                <input
-                  required
-                  type="number"
-                  id="zip"
-                  autoComplete="postal-code"
-                  className="w-1/2 rounded-md border-2 border-customGray-800 p-2.5 text-sm focus:border-customGray-600 focus:outline-none focus:ring-1 focus:ring-customGray-600"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
+        <ShippingAddress />
 
         <Link
-          className="mt-5 block rounded-md bg-customGray-800 px-4 py-2.5 text-center text-sm font-semibold text-customGray-50"
+          className="mt-5 block rounded-md bg-customGray-800 px-4 py-2.5 text-center text-sm font-semibold text-customGray-50 md:text-base lg:mt-10"
           to="/success"
         >
           Pay now

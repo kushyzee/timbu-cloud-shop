@@ -4,6 +4,7 @@ import { MdOutlineRadioButtonChecked as CheckIcon } from "react-icons/md";
 import { RiVisaLine } from "react-icons/ri";
 import { FaCcPaypal } from "react-icons/fa";
 import masterCard  from "../assets/images/master_card.svg"
+
 const cards = [
     <RiVisaLine />,
   <span className="bg-customGray-400 px-2.5 rounded-md py-0.5 block">
@@ -17,7 +18,7 @@ function RadioButtons() {
 
   return (
     <RadioGroup value={card} onChange={setCard}>
-      <RadioGroup.Label className="mb-2">
+      <RadioGroup.Label className="mb-2 text-sm md:text-base">
         Choose your preferred payment method
       </RadioGroup.Label>
       <div className="flex gap-5">
