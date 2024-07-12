@@ -13,23 +13,6 @@ const Cart = () => {
             <p className="text-sm font-medium">1 item</p>
           </div>
 
-          <div className="hidden mb-4 lg:flex items-center justify-between text-customGray-600 pb-4 border-b border-customGray-200">
-            <div>
-              <label htmlFor="products" className="cursor-pointer flex items-center gap-2">
-                <input
-                  type="checkbox"
-                  class="size-5 rounded cursor-pointer border-customGray-600"
-                  id="products"
-                  name="products"
-                />
-                PRODUCTS
-              </label>
-            </div>
-            <p className="ml-[100px]">Quantity</p> 
-            <p>PRICE</p> 
-            <p>REMOVE</p> 
-          </div>
-
           <CartItem />
           <CartItemDesktop />
         </div>
