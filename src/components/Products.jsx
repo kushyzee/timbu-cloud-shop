@@ -1,12 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { CartContext } from "../context/CartProvider";
 import ReactPaginate from "react-paginate";
-import { MdStar } from "react-icons/md";
-import { Link } from "react-router-dom";
 import getProducts from "../apiService";
 import { BounceLoader } from "react-spinners";
 import { MdNavigateBefore, MdNavigateNext } from "react-icons/md";
+import ProductGrid from "./ProductGrid";
 
+// PRODUCT LIST COMPONENT
 const Products = () => {
+  const { state, dispatch } = useContext(CartContext);
   const [products, setProducts] = useState([]);
   const [error, setError] = useState(null);
   const [page, setPage] = useState(1);
@@ -31,10 +33,10 @@ const Products = () => {
   const productsPerPage = 12;
   const totalProducts = products.length;
   const totalPages = Math.ceil(totalProducts / productsPerPage);
-
   const endOffset = productOffset + productsPerPage;
   const currentProducts = products.slice(productOffset, endOffset);
 
+  // PAGINATION FUNCTIONALITY
   const handlePageClick = (event) => {
     window.scrollTo(0, 0);
     const newOffset = (event.selected * productsPerPage) % products.length;
@@ -43,6 +45,7 @@ const Products = () => {
     setProductOffset(newOffset);
   };
 
+  // LOADING STATE
   if (loading) {
     return (
       <div className="flex h-[90svh] items-center justify-center">
@@ -56,6 +59,7 @@ const Products = () => {
     );
   }
 
+  // ERROR STATE
   if (error) {
     console.log(error);
     return (
@@ -66,44 +70,34 @@ const Products = () => {
     );
   }
 
+  // ADD TO CART FUNCTIONALITY
+  const addToCart = (product) => {
+    const addedItem = {
+      id: product.id,
+      name: product.name,
+      image: `https://api.timbu.cloud/images/${product.photos[0].url}`,
+      price: product.current_price[0].NGN[0],
+      quantity: 1,
+    };
+    dispatch({
+      type: "ADD_TO_CART",
+      payload: addedItem,
+    });
+  };
+
   return (
     <section className="mx-auto text-base lg:text-xl">
       <h2 className="font-semibold lg:text-2xl">
         Product list <span className="font-normal">({products.length})</span>
       </h2>
-      <div className="mx-auto mt-3 grid min-w-80 grid-cols-2 items-center justify-center gap-2 md:grid-cols-4 lg:mt-11 lg:grid-cols-4 lg:gap-4">
-        {currentProducts.map((product) => (
-          <div
-            id={product.id}
-            key={product.id}
-            className="border-customGray-300 w-full min-w-40 rounded-[10px] border-2"
-          >
-            <div className="aspect-square min-h-32">
-              <img
-                src={`https://api.timbu.cloud/images/${product.photos[0].url}`}
-                alt={product.name}
-                className="h-full w-full rounded-se-[10px] rounded-ss-[10px] object-cover"
-              />
-            </div>
-            <div className="px-2 py-2.5 text-sm lg:px-3 lg:text-base">
-              <p className="font-medium leading-tight">{product.name}</p>
-              <p className="mb-1 text-lg font-semibold text-customRed lg:text-2xl">
-                N{product.current_price[0].NGN[0]}
-              </p>
-              <p className="font-semibold">
-                <MdStar className="inline-block text-customYellow" />
-                {product.rating}
-              </p>
-              <Link
-                to="cart"
-                className="mt-2.5 block rounded-md bg-customGray-800 py-2.5 text-center text-customGray-50 lg:text-xl"
-              >
-                Add to cart
-              </Link>
-            </div>
-          </div>
-        ))}
-      </div>
+
+{/* PRODUCT GRID COMPONENT */}
+      <ProductGrid
+        products={currentProducts}
+        addToCart={addToCart}
+      />
+
+      {/* PAGINATION COMPONENT */}
       <div className="bg-cus mt-10 text-center">
         <ReactPaginate
           containerClassName={"flex items-center justify-center gap-3"}

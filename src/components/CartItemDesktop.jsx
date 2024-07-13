@@ -15,7 +15,7 @@ const CartItemDesktop = () => {
           >
             <input
               type="checkbox"
-              class="size-5 cursor-pointer rounded border-customGray-600"
+              className="size-5 cursor-pointer rounded border-customGray-600"
               id="products"
               name="products"
             />
