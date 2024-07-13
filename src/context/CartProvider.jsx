@@ -42,6 +42,45 @@ const cartReducer = (state, action) => {
 
       case "REMOVE_FROM_CART":
         const itemToRemove = state.cart.find(item => item.id === action.payload)
+        const filteredCart = state.cart.filter(item => item.id !== action.payload)
+        const subtotalAfterRemoval = state.subtotal - itemToRemove.price
+        
+        return {
+          ...state,
+          cart: filteredCart,
+          totalItems: state.totalItems - itemToRemove.quantity,
+          subtotal: subtotalAfterRemoval,
+          total: subtotalAfterRemoval + SHIPPING_FEE
+        }
+      
+      case "INCREASE_QUANTITY":
+        const increasedCart = state.cart.map(item => item.id === action.payload ? { ...item, quantity: item.quantity + 1 } : item)
+        const increasedItem = state.cart.find(item => item.id === action.payload)
+        const subtotalAfterIncrease = state.subtotal + increasedItem.price
+        return {
+          ...state,
+          cart: increasedCart,
+          totalItems: state.totalItems + 1,
+          subtotal: subtotalAfterIncrease,
+          total: subtotalAfterIncrease + SHIPPING_FEE
+        }
+
+      case "DECREASE_QUANTITY":
+        const decreasedCart = state.cart.map(item => item.id === action.payload && item.quantity > 1 ? { ...item, quantity: item.quantity - 1 } : item)
+        const decreasedItem = state.cart.find(item => item.id === action.payload)
+        const subtotalAfterDecrease = state.subtotal - decreasedItem.price
+        return {
+          ...state,
+          cart: decreasedCart,
+          totalItems: state.totalItems - 1,
+          subtotal: subtotalAfterDecrease,
+          total: subtotalAfterDecrease + SHIPPING_FEE
+        }
+
+        // ADD MORE CASES HERE
+      
+      default:
+        return state;
 
   }
 }
