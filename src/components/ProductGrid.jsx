@@ -29,7 +29,7 @@ const ProductGrid = ({ products, addToCart }) => {
             </p>
             <button
               onClick={() => addToCart(product)}
-              className="mt-2.5 block w-full rounded-md bg-customGray-800 py-2.5 text-center text-customGray-50 lg:text-xl"
+              className="mt-2.5 block w-full rounded-md bg-customGray-800 py-2.5 text-center text-customGray-50 lg:text-xl hover:bg-customGray-700 transition-colors duration-300"
             >
               Add to cart
             </button>
