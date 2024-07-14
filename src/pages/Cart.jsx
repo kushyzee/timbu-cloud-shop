@@ -5,6 +5,7 @@ import CartItemDesktop from "../components/CartItemDesktop";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { CartContext } from "../context/CartProvider";
+import toastify from "../utilities/toastify";
 
 const Cart = () => {
   const { state, dispatch } = useContext(CartContext);
@@ -19,6 +20,7 @@ const Cart = () => {
 
   const removeFromCart = (id) => {
     dispatch({ type: 'REMOVE_FROM_CART', payload: id });
+    toastify("Item removed from cart", "error")
   };
 
   return (

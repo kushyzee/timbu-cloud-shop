@@ -5,7 +5,7 @@ import getProducts from "../apiService";
 import { BounceLoader } from "react-spinners";
 import { MdNavigateBefore, MdNavigateNext } from "react-icons/md";
 import ProductGrid from "./ProductGrid";
-import { toast } from "react-toastify";
+import toastify from "../utilities/toastify";
 
 // PRODUCT LIST COMPONENT
 const Products = () => {
@@ -84,16 +84,7 @@ const Products = () => {
       type: "ADD_TO_CART",
       payload: addedItem,
     });
-    toast.success(`${product.name} added to cart`, {
-      position: "top-left",
-      autoClose: 3000,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
+    toastify(`${product.name} added to cart`)
   };
 
   return (
