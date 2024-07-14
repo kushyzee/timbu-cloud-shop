@@ -5,10 +5,11 @@ import getProducts from "../apiService";
 import { BounceLoader } from "react-spinners";
 import { MdNavigateBefore, MdNavigateNext } from "react-icons/md";
 import ProductGrid from "./ProductGrid";
+import { toast } from "react-toastify";
 
 // PRODUCT LIST COMPONENT
 const Products = () => {
-  const { state, dispatch } = useContext(CartContext);
+  const { dispatch } = useContext(CartContext);
   const [products, setProducts] = useState([]);
   const [error, setError] = useState(null);
   const [page, setPage] = useState(1);
@@ -83,6 +84,16 @@ const Products = () => {
       type: "ADD_TO_CART",
       payload: addedItem,
     });
+    toast.success(`${product.name} added to cart`, {
+      position: "top-left",
+      autoClose: 3000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
   };
 
   return (
@@ -91,11 +102,8 @@ const Products = () => {
         Product list <span className="font-normal">({products.length})</span>
       </h2>
 
-{/* PRODUCT GRID COMPONENT */}
-      <ProductGrid
-        products={currentProducts}
-        addToCart={addToCart}
-      />
+      {/* PRODUCT GRID COMPONENT */}
+      <ProductGrid products={currentProducts} addToCart={addToCart} />
 
       {/* PAGINATION COMPONENT */}
       <div className="bg-cus mt-10 text-center">
