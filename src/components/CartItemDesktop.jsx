@@ -1,9 +1,11 @@
 import { HiPlusSmall, HiMinusSmall } from "react-icons/hi2";
 import { MdDelete } from "react-icons/md";
-import products from "../assets/productList";
+import formatNaira from "../formatNaira";
 
-const CartItemDesktop = () => {
-  const product = products[0];
+const CartItemDesktop = ({ cartFunc }) => {
+  const { increaseQuantity, decreaseQuantity, removeFromCart, state } =
+    cartFunc;
+  const { cart } = state;
 
   return (
     <>
@@ -26,24 +28,49 @@ const CartItemDesktop = () => {
         <p>PRICE</p>
         <p>REMOVE</p>
       </div>
-      <div className="mb-2 hidden items-start justify-between gap-2 rounded-lg lg:flex">
-        <div className="flex items-start gap-2">
-          <div className="aspect-square h-28">
-            <img
-              src={product.image}
-              alt={product.name}
-              className="h-full w-full object-cover"
-            />
+      <div>
+        {cart.map((product) => (
+          <div key={product.id} className="mb-5 hidden items-start justify-between gap-5 rounded-lg lg:flex">
+            <div className="flex w-80 items-start gap-2">
+              <div className="aspect-square h-28">
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className="h-full w-full object-cover"
+                />
+              </div>
+              <p className="text-sm font-medium">{product.name}</p>
+            </div>
+            <div className="flex flex-1 items-center justify-between ml-8">
+              <div className="border-customGray-300 flex items-center justify-around gap-3 rounded-md border-2 px-1 w-24 py-1">
+                <button
+                  disabled={product.quantity === 1}
+                  className={`inline-block cursor-pointer ${product.quantity === 1 && "text-customGray-600 pointer-events-none"}`}
+                  onClick={() => decreaseQuantity(product.id)}
+                >
+                  <HiMinusSmall className="text-xl" />
+                </button>
+                <p>{product.quantity}</p>
+                <button
+                  className={`inline-block cursor-pointer`}
+                  onClick={() => increaseQuantity(product.id)}
+                >
+                  <HiPlusSmall className="text-xl" />
+                </button>
+              </div>
+              <p className="-ml-16 text-lg font-semibold text-customRed">
+                {formatNaira(product.price)}
+              </p>
+              <button
+                onClick={() => removeFromCart(product.id)}
+                className="inline-block cursor-pointer"
+              >
+                {" "}
+                <MdDelete className="text-2xl" />
+              </button>
+            </div>
           </div>
-          <p className="text-sm font-medium">{product.name}</p>
-        </div>
-        <div className="border-customGray-300 flex items-center justify-around gap-3 rounded-md border-2 px-2 py-1">
-          <HiMinusSmall className="inline-block text-xl" />
-          <p>1</p>
-          <HiPlusSmall className="inline-block text-xl" />
-        </div>
-        <p className="text-lg font-semibold text-customRed">{product.price}</p>
-        <MdDelete className="inline-block text-2xl" />
+        ))}
       </div>
     </>
   );

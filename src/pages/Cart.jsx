@@ -7,7 +7,20 @@ import { useContext } from "react";
 import { CartContext } from "../context/CartProvider";
 
 const Cart = () => {
-  const { state } = useContext(CartContext);
+  const { state, dispatch } = useContext(CartContext);
+
+  const increaseQuantity = (id) => {
+    dispatch({ type: 'INCREASE_QUANTITY', payload: id });
+  };
+
+  const decreaseQuantity = (id) => {
+    dispatch({ type: 'DECREASE_QUANTITY', payload: id });
+  };
+
+  const removeFromCart = (id) => {
+    dispatch({ type: 'REMOVE_FROM_CART', payload: id });
+  };
+
   return (
     <section className="text-base text-customGray-800 lg:mb-32">
       {state.totalItems === 0 ? (
@@ -30,8 +43,8 @@ const Cart = () => {
               <p className="text-sm font-medium">{state.totalItems} item{state.totalItems > 1 && 's'}</p>
             </div>
 
-            <CartItem cartContext={CartContext} />
-            <CartItemDesktop />
+            <CartItem cartFunc={{ increaseQuantity, decreaseQuantity, removeFromCart }} />
+            <CartItemDesktop cartFunc={{ increaseQuantity, decreaseQuantity, removeFromCart, state }} />
           </div>
           <OrderSummary />
         </div>
