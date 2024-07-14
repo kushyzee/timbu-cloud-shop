@@ -1,5 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import formatNaira from "../formatNaira";
+import { useContext } from "react";
+import { CartContext } from "../context/CartProvider";
 
 const promoCode = () => {
   return (
@@ -23,6 +26,9 @@ const promoCode = () => {
 };
 
 const OrderSummary = ({ isCart=true }) => {
+  const { state } = useContext(CartContext);
+  const {subtotal, total, shippingFee} = state; 
+
   return (
     <div className="border-customGray-300 mb-2 mt-16 gap-2 rounded-xl border-2 p-2.5 text-sm text-customGray-800 md:mb-0 md:mt-0 lg:text-base max-w-sm flex-1">
       <div className="mb-5 w-full rounded-md bg-customTeal py-2.5 text-center text-base font-semibold">
@@ -33,11 +39,11 @@ const OrderSummary = ({ isCart=true }) => {
       <div className="flex flex-col gap-4 font-semibold">
         <div className="flex items-center justify-between">
           <p>Subtotal</p>
-          <p>N7,999.98</p>
+          <p>{formatNaira(subtotal)}</p>
         </div>
         <div className="flex items-center justify-between">
           <p>Shipping cost</p>
-          <p>N2,000.00</p>
+          <p>{formatNaira(shippingFee)}</p>
         </div>
         <div className="flex items-center justify-between">
           <p>Discount</p>
@@ -45,11 +51,10 @@ const OrderSummary = ({ isCart=true }) => {
         </div>
         <div className="flex items-center justify-between">
           <p>Total</p>
-          <p>N9,999.98</p>
+          <p>{formatNaira(total)}</p>
         </div>
       </div>
       {isCart && <Link to="/checkout" className="mt-6 block rounded-md bg-customGray-800 px-5 py-2.5 text-center text-customGray-50">Checkout</Link>}
-      
     </div>
   );
 };
