@@ -52,7 +52,7 @@ const cartReducer = (state, action) => {
       );
       const subtotalAfterRemoval =
         state.subtotal - itemToRemove.price * itemToRemove.quantity;
-
+        
       return {
         ...state,
         cart: filteredCart,
@@ -71,6 +71,7 @@ const cartReducer = (state, action) => {
         (item) => item.id === action.payload,
       );
       const subtotalAfterIncrease = state.subtotal + increasedItem.price;
+
       return {
         ...state,
         cart: increasedCart,
@@ -89,6 +90,7 @@ const cartReducer = (state, action) => {
         (item) => item.id === action.payload,
       );
       const subtotalAfterDecrease = state.subtotal - decreasedItem.price;
+
       return {
         ...state,
         cart: decreasedCart,
