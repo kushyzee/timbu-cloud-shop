@@ -1,4 +1,6 @@
 import { MdStar } from "react-icons/md";
+import formatNaira from "../formatNaira";
+
 
 const ProductGrid = ({ products, addToCart }) => {
   return (
@@ -19,11 +21,11 @@ const ProductGrid = ({ products, addToCart }) => {
           <div className="px-2 py-2.5 text-sm lg:px-3 lg:text-base">
             <p className="font-medium leading-tight">{product.name}</p>
             <p className="mb-1 text-lg font-semibold text-customRed lg:text-2xl">
-              N{product.current_price[0].NGN[0]}
+              {formatNaira( product.current_price[0].NGN[0])}
             </p>
             <p className="font-semibold">
               <MdStar className="inline-block text-customYellow" />
-              {product.rating}
+              4.2
             </p>
             <button
               onClick={() => addToCart(product)}
