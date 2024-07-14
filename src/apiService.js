@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE_URL = "https://api.timbu.cloud";
+const API_BASE_URL = "/api";
 const API_KEY = import.meta.env.VITE_API_KEY;
 const ORGANIZATION_ID = import.meta.env.VITE_ORGANIZATION_ID;
 const APP_ID = import.meta.env.VITE_APP_ID;
