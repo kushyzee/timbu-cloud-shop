@@ -4,10 +4,20 @@ import products from "../assets/productList";
 import { useContext } from "react";
 
 const CartItem = ({ isCart = true, cartContext }) => {
-  const product = products[0];
   const { state, dispatch } = useContext(cartContext);
   const { cart } = state;
-  console.log(cart[0]);
+
+  const increaseQuantity = (id) => {
+    dispatch({ type: 'INCREASE_QUANTITY', payload: id });
+  };
+
+  const decreaseQuantity = (id) => {
+    dispatch({ type: 'DECREASE_QUANTITY', payload: id });
+  };
+
+  const removeFromCart = (id) => {
+    dispatch({ type: 'REMOVE_FROM_CART', payload: id });
+  };
   return (
     <div>
       {cart.map(product => (
@@ -26,13 +36,17 @@ const CartItem = ({ isCart = true, cartContext }) => {
           <p className="text-lg font-semibold text-customRed">{product.price}</p>
           {isCart && (
             <div className="border-customGray-300 mt-4 flex items-center justify-around gap-3 rounded-md border-2 px-2 py-1 w-28">
-              <HiMinusSmall className="inline-block text-xl cursor-pointer" />
-              <p>1</p>
-              <HiPlusSmall className="inline-block text-xl cursor-pointer" />
+              <button disabled={product.quantity === 1} className={`inline-block cursor-pointer ${product.quantity === 1 && "text-customGray-600"}`} onClick={() => decreaseQuantity(product.id)}>
+                <HiMinusSmall className=" text-xl cursor-pointer" />
+              </button>
+              <p>{product.quantity}</p>
+              <button className={`inline-block cursor-pointer`} onClick={() => increaseQuantity(product.id)}>
+              <HiPlusSmall className=" text-xl cursor-pointer" />
+              </button>
             </div>
           )}
         </div>
-        {isCart && <MdDelete className="ml-auto inline-block text-2xl cursor-pointer" />}
+        {isCart && <button onClick={() => removeFromCart(product.id)} className="ml-auto inline-block cursor-pointer"> <MdDelete className="text-2xl" /></button>}
       </div>
       )) }
       
