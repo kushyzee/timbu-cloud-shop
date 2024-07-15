@@ -2,10 +2,11 @@ import { useEffect, useState, useContext } from "react";
 import { CartContext } from "../context/CartProvider";
 import ReactPaginate from "react-paginate";
 import getProducts from "../apiService";
-import { BounceLoader } from "react-spinners";
 import { MdNavigateBefore, MdNavigateNext } from "react-icons/md";
 import ProductGrid from "./ProductGrid";
 import toastify from "../utilities/toastify";
+import Loader from '../utilities/Loader';
+import ShowError from "../utilities/ShowError";
 
 // PRODUCT LIST COMPONENT
 const Products = () => {
@@ -49,14 +50,7 @@ const Products = () => {
   // LOADING STATE
   if (loading) {
     return (
-      <div className="flex h-[90svh] items-center justify-center">
-        <BounceLoader
-          speedMultiplier={2}
-          color="#0abab5"
-          loading={loading}
-          size={120}
-        />
-      </div>
+      <Loader loading={loading} />
     );
   }
 
@@ -64,10 +58,7 @@ const Products = () => {
   if (error) {
     console.log(error);
     return (
-      <div className="h-svh pt-10 text-center">
-        <h1 className="text-4xl font-semibold">An error occurred</h1>
-        <p className="text-lg">Please try again later</p>
-      </div>
+      <ShowError />
     );
   }
 

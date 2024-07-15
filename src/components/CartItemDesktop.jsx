@@ -31,7 +31,7 @@ const CartItemDesktop = ({ cartFunc }) => {
       <div>
         {cart.map((product) => (
           <div key={product.id} className="mb-5 hidden items-start justify-between gap-5 rounded-lg lg:flex">
-            <div className="flex w-80 items-start gap-2">
+            <div className="flex lg:w-64 xl:w-80 items-start gap-2">
               <div className="aspect-square h-28">
                 <img
                   src={product.image}
@@ -41,7 +41,7 @@ const CartItemDesktop = ({ cartFunc }) => {
               </div>
               <p className="text-sm font-medium">{product.name}</p>
             </div>
-            <div className="flex flex-1 items-center justify-between ml-8">
+            <div className="flex flex-1 items-center justify-between xl:ml-8">
               <div className="border-customGray-300 flex items-center justify-around gap-3 rounded-md border-2 px-1 w-24 py-1">
                 <button
                   disabled={product.quantity === 1}
@@ -58,7 +58,7 @@ const CartItemDesktop = ({ cartFunc }) => {
                   <HiPlusSmall className="text-xl" />
                 </button>
               </div>
-              <p className="-ml-16 text-lg font-semibold text-customRed">
+              <p className="xl:-ml-16 lg:-ml-6 text-lg font-semibold text-customRed">
                 {formatNaira(product.price)}
               </p>
               <button
