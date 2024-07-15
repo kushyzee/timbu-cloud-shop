@@ -68,7 +68,7 @@ const ProductPage = () => {
       <div className="md:flex items-start gap-5 lg:gap-10 lg:max-w-screen-lg mx-auto">
         {/* IMAGE GRID COMPONENT */}
         <div className="lg:flex items-start flex-row-reverse justify-between md:max-w-md lg:max-w-lg gap-5">
-          <div className="min-h-32 md:max-w-xs lg:h-[304px]">
+          <div className="min-h-32 h-60 md:max-w-xs lg:h-[304px]">
             <img
               src={`https://api.timbu.cloud/images/${product.photos[0].url}`}
               alt={product.name}
