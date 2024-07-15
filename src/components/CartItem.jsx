@@ -13,7 +13,7 @@ const CartItem = ({ isCart = true, cartFunc }) => {
     <div>
       {cart.map(product => (
         <div id={product.id} key={product.id}
-        className={`font-sm ${isCart && "lg:hidden lg:border-0 lg:p-0"} border-customGray-300 mb-2 flex items-center justify-start gap-2 rounded-lg border-2 p-2.5`}
+        className={`font-sm ${isCart && "lg:hidden lg:border-0 lg:p-0"} border-customGray-300 mb-2 flex lg:min-w-64 items-center justify-start gap-2 rounded-lg border-2 p-2.5`}
       >
         <div className="aspect-square h-28">
           <img
